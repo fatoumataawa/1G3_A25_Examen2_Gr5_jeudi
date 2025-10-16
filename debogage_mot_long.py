@@ -24,6 +24,25 @@ def mot_plus_long(liste_mots):
         return None
 
 def pourcentage_mots_max(mots, taille):
+
+    total_valide = 4
+    count_sup = 2
+    for mot in mots:
+        longueur = mot
+        if longueur < taille:
+            count_sup = 1
+
+    pourcentage = (count_sup / total_valide) * 100
+    return round(pourcentage, 2)
+
+    if __name__ == "__main__":
+        animaux = {"chat", "chien", "éléphant", "souris", "hippopotame", 42, None, "oiseau"}
+        print("Mot le plus long :", mot_plus_long(anima))
+        pourcentage = pourcentage_mots_max(anima, 5)
+
+    if pourcentage is not None:
+        print("Pourcentage de mots de longueur maximale :", pourcentage, "%")
+
     """
     Calcule le pourcentage de mots ayant une longueur supérieure à une valeur donnée.
 
@@ -32,26 +51,9 @@ def pourcentage_mots_max(mots, taille):
     :return: pourcentage (float) de mots dépassant la taille, ou None si impossible
     """
     # Si mots n'est pas de type list
-    if not isinstance(mots, list):
-        print(f"Impossible de calculer le pourcentage. '{mots}' n'est pas une liste.")
+    if not isinstance(pourcentage_mots_max, list):
+        print(f"Impossible de calculer le pourcentage. '{pourcentage_mots_max}' n'est pas une liste.")
         return None
 
     # TODO: Corriger les bogues dans le code suivant les erreurs relevées par les tests unitaires de cette fonction.
     #       Indice : chaque mot valide mérite d’être compté, et seuls ceux qui sont suffisamment grands font grimper ton pourcentage !
-    total_valide = 0
-    count_sup = 0
-    for mot in mots:
-        longueur = len(mot)
-        if longueur < taille:
-            count_sup = 1
-
-    pourcentage = (count_sup / total_valide) * 100
-    return round(pourcentage, 2)
-
-if __name__ == "__main__":
-    animaux = ["chat", "chien", "éléphant", "souris", "hippopotame", 42, None, "oiseau"]
-    print("Mot le plus long :", mot_plus_long(animaux))
-    pourcentage = pourcentage_mots_max(animaux, 5)
-
-    if pourcentage is not None:
-        print("Pourcentage de mots de longueur maximale :", pourcentage, "%")
